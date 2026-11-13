@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080711">
+<title>The World I Wish To Show You ❤️</title>
+<style>
+*{box-sizing:border-box}
+:root{--gold:#f6d7a0;--pink:#f2a6bc}
+body{
+ margin:0;background:#080711;color:white;
+ font-family:Georgia,serif;overflow-x:hidden;
+}
+button{font-family:Arial;cursor:pointer}
+#universe{
+ min-height:100svh;position:relative;overflow:hidden;
+ background:radial-gradient(ellipse at 50% 45%,#31203e,#100d20 60%,#05040a);
+}
+#stars{position:fixed;inset:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;width:2px;height:2px;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}
+.screen{
+ min-height:100svh;display:none;position:relative;
+ padding:35px 20px;align-items:center;justify-content:center;
+ text-align:center;flex-direction:column;isolation:isolate;
+ animation:appear 1s ease both;
+}
+.screen.active{display:flex}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.kicker{font:10px Arial;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(43px,11vw,76px);font-weight:normal;line-height:1.05;margin:22px 0;color:#f8e6c9;text-shadow:0 0 30px #f2c38b55}
+h2{font-size:clamp(31px,8vw,48px);font-weight:normal;color:#f7dfc1;margin:15px 0}
+p{font-size:18px;line-height:1.75;color:#e8dce4;max-width:470px}
+.sub{font:12px/1.8 Arial;color:#c1aebf;letter-spacing:1px}
+.gold{color:var(--gold)}
+.line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:22px auto}
+.btn{
+ border:1px solid #d9b77f;background:linear-gradient(135deg,#49283b,#17101f);
+ color:#ffe8c3;border-radius:40px;padding:16px 25px;
+ font-size:11px;letter-spacing:2px;text-transform:uppercase;
+ margin:9px;box-shadow:0 0 25px #e5b97c22;
+ transition:.3s;
+}
+.btn:active{transform:scale(.95)}
+.btn.secondary{background:#ffffff0a;border-color:#ffffff55}
+#earth{
+ width:230px;height:230px;border-radius:50%;margin:30px auto;
+ position:relative;overflow:hidden;
+ background:
+ radial-gradient(ellipse at 30% 30%,#5eae8d 0 8%,transparent 9%),
+ radial-gradient(ellipse at 70% 48%,#6cae82 0 13%,transparent 14%),
+ radial-gradient(ellipse at 35% 75%,#519c80 0 12%,transparent 13%),
+ radial-gradient(circle at 35% 30%,#4f90bc,#15304f 65%,#080d20);
+ box-shadow:inset -30px -15px 50px #020514,0 0 45px #69b8e955;
+ animation:earth 22s linear infinite;
+}
+#earth:after{
+ content:"";position:absolute;inset:0;border-radius:50%;
+ background:linear-gradient(90deg,transparent,#ffffff22,transparent);
+}
+@keyframes earth{to{transform:rotate(360deg)}}
+.plane{font-size:50px;animation:fly 4s ease-in-out infinite}
+@keyframes fly{50%{transform:translate(20px,-15px) rotate(-8deg)}}
+.scene-art{
+ width:min(100%,440px);height:250px;border-radius:20px;
+ margin:20px auto;position:relative;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
+ font-size:85px;transform-style:preserve-3d;
+ box-shadow:0 20px 60px #0008,inset 0 0 50px #0004;
+ transition:transform .2s;
+}
+.scene-art:before{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(180deg,transparent 45%,#07050cbb);
+}
+.scene-art span{position:relative;z-index:2;filter:drop-shadow(0 8px 12px #0008)}
+.japan{background:linear-gradient(170deg,#8c668d,#eaa9ae 48%,#4b465e 49%,#171b32)}
+.russia{background:linear-gradient(170deg,#243957,#8799ac 55%,#d7e7f0 56%,#687c98)}
+.paris{background:linear-gradient(170deg,#9b6a65,#f0b68f 52%,#45334c 53%,#11101e)}
+.italy{background:linear-gradient(170deg,#edb68c,#e7c7a3 48%,#537d71 49%,#193d39)}
+.scene-art .landmark{font-size:100px;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) rotateY(8deg)}}
+.sakura{
+ position:absolute;inset:0;pointer-events:none;
+ background-image:radial-gradient(ellipse,#ffc5d6 0 35%,transparent 40%);
+ background-size:55px 55px;opacity:.35;
+ animation:drift 15s linear infinite;
+}
+@keyframes drift{to{background-position:200px 350px}}
+.snow{
+ position:absolute;inset:0;pointer-events:none;
+ background-image:radial-gradient(#fff 1px,transparent 2px);
+ background-size:32px 32px;animation:snow 8s linear infinite;
+}
+@keyframes snow{to{background-position:0 260px}}
+.country-nav{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+.country-nav button{
+ border:1px solid #ffffff55;background:#ffffff0c;
+ color:#f5e1ce;padding:10px 13px;border-radius:30px;font-size:11px
+}
+.country-nav button.selected{border-color:var(--gold);background:#b88a5b33}
+.message{
+ padding:22px;border:1px solid #d7b77d55;border-radius:18px;
+ background:linear-gradient(135deg,#ffffff0c,#ffffff03);
+ max-width:450px;margin:12px auto;
+}
+.message p{font-size:17px;margin:0}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+.petal{
+ position:absolute;top:-25px;width:12px;height:17px;
+ border-radius:100% 0 100% 0;background:#efb0c5;
+ animation:fall linear forwards;
+}
+@keyframes fall{to{transform:translate(80px,110vh) rotate(700deg);opacity:0}}
+.heart{font-size:115px;color:#f4a1b8;animation:heartbeat 1.5s infinite;filter:drop-shadow(0 0 25px #ff799c)}
+@keyframes heartbeat{15%{transform:scale(1.16)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+.progress{height:2px;background:#ffffff20;width:200px;margin:25px auto}
+.progress div{height:100%;background:var(--gold);width:0;transition:.5s}
+footer{font:9px Arial;color:#887c91;letter-spacing:2px;margin-top:20px}
+</style>
+</head>
+<body>
+<div id="universe">
+<div id="stars"></div>
+<div id="petals"></div>
+
+<!-- OPENING -->
+<section class="screen active" id="opening">
+ <div class="kicker">A journey made from my heart</div>
+ <h1>The World<br>I Wish To<br>Show You</h1>
+ <div class="sub">A PRIVATE WORLD TOUR FOR MERI ARESHEY</div>
+ <div id="earth"></div>
+ <p>Four countries. Countless dreams.<br>One person I wish to share them with.</p>
+ <button class="btn" onclick="begin()">Begin Our Journey ✦</button>
+ <footer>PLEASE USE HEADPHONES</footer>
+</section>
+
+<!-- AIRPORT -->
+<section class="screen" id="airport">
+ <div class="kicker">Your private departure</div>
+ <h2>Welcome, Meri Areshey</h2>
+ <div class="line"></div>
+ <div style="font-size:70px">✈️</div>
+ <h2>BOARDING PASS</h2>
+ <div class="message">
+  <p>PASSENGER<br><strong class="gold">MERI ARESHEY</strong></p>
+  <p>DESTINATION<br><strong>YOUR DREAMS</strong></p>
+  <p>TRAVEL COMPANION<br><strong class="gold">ALI ❤️</strong></p>
+  <p>FLIGHT<br><strong>LOVE — 001</strong></p>
+ </div>
+ <p>Your dream destinations are waiting.</p>
+ <button class="btn" onclick="country(0)">Take off ✈</button>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="screen" id="travel">
+ <div class="kicker" id="chapter">Destination 01</div>
+ <h2 id="countryTitle">Japan</h2>
+ <div class="scene-art japan" id="art">
+  <div class="sakura" id="weather"></div>
+  <span class="landmark" id="landmark">🗻</span>
+ </div>
+ <div class="sub" id="countrySubtitle">THE LAND OF DREAMS</div>
+ <div class="line"></div>
+ <p id="countryDesc"></p>
+ <div class="message"><p id="loveNote"></p></div>
+ <div class="country-nav" id="nav">
+  <button onclick="country(0)">🇯🇵 Japan</button>
+  <button onclick="country(1)">🇷🇺 Russia</button>
+  <button onclick="country(2)">🇫🇷 Paris</button>
+  <button onclick="country(3)">🇮🇹 Italy</button>
+ </div>
+ <div>
+  <button class="btn secondary" onclick="country(current-1)">← Previous</button>
+  <button class="btn" onclick="country(current+1)">Next destination →</button>
+ </div>
+ <div class="progress"><div id="progressBar"></div></div>
+ <footer>EXPLORE AT YOUR OWN PACE</footer>
+</section>
+
+<!-- FINAL -->
+<section class="screen" id="final">
+ <div class="kicker">Our final destination</div>
+ <div class="heart">♥</div>
+ <h1>Meri Areshey</h1>
+ <div class="line"></div>
+ <p>We travelled through Japan, Russia, Paris and Italy.</p>
+ <p>But there is something I want you to know...</p>
+ <div class="message">
+  <p class="gold" style="font-size:21px">"I can't promise you the whole world today, but I dream of exploring it with you someday."</p>
+  <br>
+  <p>Every beautiful place has a story. And one of my favourite dreams is imagining all the places you want to see, with you beside me.</p>
+  <br>
+  <p>Until that day, I hope this little journey reminds you that your dreams matter to me.</p>
+ </div>
+ <div class="line"></div>
+ <p class="gold">You deserve to see the world, Meri Areshey. ❤️</p>
+ <h2 style="font-style:italic">With love, Ali</h2>
+ <button class="btn" onclick="restart()">Travel Again ↻</button>
+ <footer>THE WORLD IS BEAUTIFUL. SO ARE YOUR DREAMS.</footer>
+</section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let current=0,audio=null,ambient=false;
+
+const places=[
+ {
+ name:"Japan 🇯🇵",title:"The Land of Dreams",
+ art:"japan",icon:"🗻",weather:"sakura",
+ desc:"Imagine standing beneath Mount Fuji, with cherry blossoms dancing in the spring breeze. Then walking through Tokyo, where glowing lights turn the night into a dream.",
+ note:"If I could walk beside you here, I'd slow down just so we could enjoy every little moment together.",
+ },
+ {
+ name:"Russia 🇷🇺",title:"A Winter Fairytale",
+ art:"russia",icon:"🏰",weather:"snow",
+ desc:"Moscow under a blanket of snow. Beautiful architecture, warm lights, quiet streets and a winter sky that looks like a painting.",
+ note:"I'd love to see your face light up as the first snowflakes land around you. Some moments deserve to last forever.",
+ },
+ {
+ name:"Paris 🇫🇷",title:"The City of Love",
+ art:"paris",icon:"🗼",weather:"",
+ desc:"The Eiffel Tower glowing at sunset, the Seine flowing quietly, beautiful little cafés and streets filled with music.",
+ note:"A city famous for love, but I think the best part would simply be sharing the view with you.",
+ },
+ {
+ name:"Italy 🇮🇹",title:"La Dolce Vita",
+ art:"italy",icon:"🚣",weather:"",
+ desc:"A gondola gliding through Venice, the timeless streets of Rome and the golden countryside of Tuscany. A beautiful world moving at a slower pace.",
+ note:"I'd want us to get a little lost here, discover something unexpected and remember every detail.",
+ }
+];
+
+function show(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ $(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+function begin(){
+ startSound();
+ show('airport');
+}
+function country(n){
+ if(n<0)n=0;
+ if(n>=places.length){show('final');vibrate([50,40,100]);return}
+ current=n;
+ const p=places[n];
+ $('chapter').textContent='Destination 0'+(n+1);
+ $('countryTitle').textContent=p.name;
+ $('countrySubtitle').textContent=p.title.toUpperCase();
+ $('art').className='scene-art '+p.art;
+ $('landmark').textContent=p.icon;
+ $('weather').className=p.weather;
+ $('countryDesc').textContent=p.desc;
+ $('loveNote').textContent=p.note;
+ $('progressBar').style.width=((n+1)/4*100)+'%';
+ document.querySelectorAll('.country-nav button').forEach((b,i)=>b.classList.toggle('selected',i===n));
+ show('travel');
+ petals(n===0?'#f6b7cf':n===1?'#ffffff':'#eac5a0');
+ vibrate(25);
+}
+function restart(){current=0;show('opening')}
+function vibrate(v){if(navigator.vibrate)navigator.vibrate(v)}
+function petals(color){
+ const layer=$('petals');
+ for(let i=0;i<22;i++){
+  let p=document.createElement('i');
+  p.className='petal';p.style.background=color;
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(5+Math.random()*6)+'s';
+  layer.appendChild(p);
+  setTimeout(()=>p.remove(),12000);
+ }
+}
+for(let i=0;i<90;i++){
+ let s=document.createElement('i');
+ s.className='star';s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*4+'s';
+ $('stars').appendChild(s);
+}
+
+// Original soft ambient tones, started by the user's tap
+function startSound(){
+ if(ambient)return;
+ try{
+  audio=new(window.AudioContext||window.webkitAudioContext)();
+  ambient=true;
+  const notes=[196,246.94,293.66,246.94,220,261.63,329.63,261.63];
+  let i=0;
+  function play(){
+   if(!audio||audio.state==='closed')return;
+   let o=audio.createOscillator(),g=audio.createGain();
+   o.type='sine';o.frequency.value=notes[i++%notes.length];
+   g.gain.setValueAtTime(.0001,audio.currentTime);
+   g.gain.linearRampToValueAtTime(.025,audio.currentTime+.5);
+   g.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+2.5);
+   o.connect(g);g.connect(audio.destination);
+   o.start();o.stop(audio.currentTime+2.6);
+  }
+  play();setInterval(play,1900);
+ }catch(e){}
+}
+document.addEventListener('visibilitychange',()=>{
+ if(audio){if(document.hidden)audio.suspend();else audio.resume();}
+});
+
+// Touch/tilt-inspired 3D parallax
+const art=$('art');
+document.addEventListener('pointermove',e=>{
+ if(!$('travel').classList.contains('active'))return;
+ const x=(e.clientX/innerWidth-.5)*10;
+ const y=(e.clientY/innerHeight-.5)*-10;
+ art.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
+});
+document.addEventListener('pointerup',()=>{art.style.transform='rotateY(0) rotateX(0)'});
+</script>
+</body>
+   </html>
+   
